@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2>Products
+      <a class="float-right" [routerLink]="['/product/add']">
+        <button type="button" class="btn btn-primary">Add</button>
+      </a>
+    </h2>
+    <table class="table table-bordered mt-5">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of data; let i = index;">
+              <td width="20">{{item.id}}</td>
+              <td>{{item.title}}</td>
+              <td width="250">                
+                  <button type="button" class="btn btn-danger mr-1" (click)="deleteProduct(item.id, i)">Delete</button>
+                  <a [routerLink]="['/product/edit/', item.id]">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                  </a>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+  </div>
